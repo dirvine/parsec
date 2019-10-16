@@ -17,7 +17,7 @@ use crate::{
     peer_list::{PeerIndex, PeerIndexMap, PeerIndexSet, PeerListChange},
 };
 use fnv::{FnvHashMap, FnvHashSet};
-use std::{cmp, collections::BTreeSet, usize};
+use async_std::{cmp, collections::BTreeSet, usize};
 
 lazy_static! {
     static ref EMPTY_BTREESET_EVENT_INDEX: BTreeSet<EventIndex> = BTreeSet::new();
@@ -305,7 +305,7 @@ pub(crate) mod snapshot {
         id::SecretId,
         peer_list::PeerList,
     };
-    use std::collections::BTreeMap;
+    use async_std::collections::BTreeMap;
 
     #[serde(bound = "")]
     #[derive(Eq, PartialEq, Debug, Serialize, Deserialize)]

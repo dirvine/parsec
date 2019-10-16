@@ -12,7 +12,7 @@ use crate::{
 };
 use fnv::FnvHashSet;
 use itertools::{EitherOrBoth, Itertools};
-use std::{
+use async_std::{
     cmp,
     collections::{BTreeMap, BTreeSet},
     fmt::{self, Debug, Formatter},

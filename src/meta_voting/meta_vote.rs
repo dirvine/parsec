@@ -15,7 +15,7 @@ use super::{
     meta_vote_counts::MetaVoteCounts,
     meta_vote_values::{MetaVoteValues, Step},
 };
-use std::{
+use async_std::{
     collections::BTreeMap,
     fmt::{self, Debug, Formatter},
     num::NonZeroUsize,
@@ -191,7 +191,7 @@ mod tests {
     use super::*;
 
     use crate::meta_voting::meta_vote_values::{AuxValue, BinValues, Estimates};
-    use std::num::NonZeroUsize;
+    use async_std::num::NonZeroUsize;
 
     #[test]
     fn meta_vote_decide_if_any_decided() {

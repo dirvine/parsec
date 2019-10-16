@@ -15,7 +15,7 @@ use crate::{
     serialise,
 };
 use serde::de::DeserializeOwned;
-use std::fmt::{self, Debug, Formatter};
+use async_std::fmt::{self, Debug, Formatter};
 
 /// A helper struct carrying an `Observation` and a signature of this `Observation`.
 #[serde(bound(deserialize = "T: DeserializeOwned"))]

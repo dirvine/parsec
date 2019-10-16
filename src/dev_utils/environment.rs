@@ -13,7 +13,7 @@ use crate::{
     },
     observation::ConsensusMode,
 };
-use std::fmt;
+use async_std::fmt;
 
 pub struct Environment {
     /// The network for test

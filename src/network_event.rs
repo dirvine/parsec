@@ -7,7 +7,7 @@
 // permissions and limitations relating to use of the SAFE Network Software.
 
 use serde::{de::DeserializeOwned, Serialize};
-use std::fmt::Debug;
+use async_std::fmt::Debug;
 
 /// This represents the type which will be voted for by peers; generally it is the set of
 /// constraints on `T` throughout this library.

@@ -7,7 +7,7 @@
 // permissions and limitations relating to use of the SAFE Network Software.
 
 use serde::{Deserialize, Deserializer, Serialize, Serializer};
-use std::{
+use async_std::{
     cmp::Ordering,
     fmt::{self, Debug, Formatter},
 };

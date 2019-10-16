@@ -8,8 +8,8 @@
 
 use crate::{gossip::AbstractEventRef, observation::ObservationKey};
 use itertools::Itertools;
-use std::cmp::Ordering;
-use std::usize;
+use async_std::cmp::Ordering;
+use async_std::usize;
 
 /// Find interesting payloads for the builder_event.
 /// For payload observed from builder_event, order them by creation index.

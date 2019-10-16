@@ -12,7 +12,7 @@ use crate::{
     id::PublicId,
 };
 use itertools::Itertools;
-use std::{
+use async_std::{
     fmt::{self, Debug, Formatter},
     iter::{self, FromIterator},
 };

@@ -33,7 +33,7 @@ use crate::{
     observation::ConsensusMode,
 };
 use itertools::Itertools;
-use std::fmt::{self, Debug, Display, Formatter};
+use async_std::fmt::{self, Debug, Display, Formatter};
 
 pub(crate) struct Event<P: PublicId> {
     content: Content<VoteKey<P>, EventIndex, PeerIndex>,

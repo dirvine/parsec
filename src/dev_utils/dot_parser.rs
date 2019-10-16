@@ -31,7 +31,7 @@ use pom::{
     parser::*,
     DataInput, Parser, Result as PomResult,
 };
-use std::{
+use async_std::{
     cell::RefCell,
     collections::{BTreeMap, BTreeSet},
     fs::File,
@@ -106,7 +106,7 @@ impl ParserCtx {
     }
 
     fn peer_id_from_short_name(&self, short_name: &str) -> PeerId {
-        use std::ops::Bound::{Included, Unbounded};
+        use async_std::ops::Bound::{Included, Unbounded};
 
         let peer_ids = self.peer_ids.borrow();
 
@@ -868,7 +868,7 @@ pub(crate) fn parse_test_dot_file(filename: &str) -> ParsedContents {
 
 #[cfg(test)]
 fn derive_test_name_from_current_thread_name() -> String {
-    use std::{env, thread};
+    use async_std::{env, thread};
 
     let test_name = unwrap!(thread::current().name()).replace("::", "_");
     if test_name == "main" {
@@ -904,7 +904,7 @@ fn derive_test_name_from_current_thread_name() -> String {
 /// parses the dot file as per `parse_dot_file()` above, with test name being part of the path.
 #[cfg(test)]
 fn parse_dot_file_with_test_name(filename: &str, test_name: &str) -> ParsedContents {
-    use std::path::PathBuf;
+    use async_std::path::PathBuf;
 
     let mut dot_path = PathBuf::from("input_graphs");
     dot_path.push(test_name);
@@ -1102,7 +1102,7 @@ fn create_events(
 ) -> BTreeMap<String, EventIndex> {
     let mut event_indices = BTreeMap::new();
 
-    let graph = std::mem::replace(graph, BTreeMap::new());
+    let graph = async_std::mem::replace(graph, BTreeMap::new());
     let mut graph = in_peer_order(graph, peer_list);
 
     while !graph.is_empty() {
@@ -1268,7 +1268,7 @@ mod tests {
         meta_voting::MetaElectionSnapshot,
         mock::PeerId,
     };
-    use std::fs;
+    use async_std::fs;
 
     type Snapshot = (GraphSnapshot, MetaElectionSnapshot<PeerId>);
 

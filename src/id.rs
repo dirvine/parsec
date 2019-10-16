@@ -7,7 +7,7 @@
 // permissions and limitations relating to use of the SAFE Network Software.
 
 use serde::{de::DeserializeOwned, Serialize};
-use std::{fmt::Debug, hash::Hash};
+use async_std::{fmt::Debug, hash::Hash};
 
 /// The public identity of a node.  It provides functionality to allow it to be used as an
 /// asymmetric signing public key.

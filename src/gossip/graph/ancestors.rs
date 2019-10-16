@@ -8,7 +8,7 @@
 
 use super::{Graph, IndexedEventRef};
 use crate::id::PublicId;
-use std::collections::BTreeSet;
+use async_std::collections::BTreeSet;
 
 pub(crate) struct Ancestors<'a, P: PublicId + 'a> {
     pub(super) graph: &'a Graph<P>,

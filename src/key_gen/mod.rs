@@ -108,8 +108,8 @@ use failure::Fail;
 use maidsafe_utilities::serialisation;
 use rand;
 use serde_derive::{Deserialize, Serialize};
-use std::collections::{BTreeMap, BTreeSet};
-use std::fmt::{self, Debug, Formatter};
+use async_std::collections::{BTreeMap, BTreeSet};
+use async_std::fmt::{self, Debug, Formatter};
 use threshold_crypto::pairing::{CurveAffine, Field};
 use threshold_crypto::{
     poly::{BivarCommitment, BivarPoly, Poly},

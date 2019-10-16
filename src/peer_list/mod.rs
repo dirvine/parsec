@@ -27,7 +27,7 @@ use crate::{
     gossip::{EventIndex, IndexedEventRef},
     id::SecretId,
 };
-use std::{
+use async_std::{
     collections::btree_map::{BTreeMap, Entry},
     fmt::{self, Debug, Formatter},
     iter,
@@ -341,7 +341,7 @@ pub(crate) enum PeerListChange {
 pub(crate) mod snapshot {
     use super::*;
     use crate::{gossip::EventHash, id::PublicId};
-    use std::collections::BTreeSet;
+    use async_std::collections::BTreeSet;
 
     #[derive(Eq, PartialEq, Debug)]
     pub(crate) struct PeerListSnapshot<P: PublicId>(

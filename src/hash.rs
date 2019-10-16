@@ -6,7 +6,7 @@
 // KIND, either express or implied. Please review the Licences for the specific language governing
 // permissions and limitations relating to use of the SAFE Network Software.
 
-use std::fmt::{self, Debug, Formatter};
+use async_std::fmt::{self, Debug, Formatter};
 use tiny_keccak;
 
 pub const HASH_LEN: usize = 32;
@@ -54,7 +54,7 @@ impl Debug for Hash {
 #[cfg(any(feature = "dump-graphs", not(any(test, feature = "testing"))))]
 mod full {
     use super::*;
-    use std::fmt::Display;
+    use async_std::fmt::Display;
 
     #[cfg(feature = "dump-graphs")]
     impl Hash {

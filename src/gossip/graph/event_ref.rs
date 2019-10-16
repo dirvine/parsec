@@ -11,7 +11,7 @@ use super::{
     event_index::EventIndex,
 };
 use crate::{id::PublicId, observation::ObservationKey, peer_list::PeerIndex};
-use std::{
+use async_std::{
     cmp::{Ord, Ordering, PartialOrd},
     ops::Deref,
 };

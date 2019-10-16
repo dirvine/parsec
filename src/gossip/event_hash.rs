@@ -7,7 +7,7 @@
 // permissions and limitations relating to use of the SAFE Network Software.
 
 use crate::hash::Hash;
-use std::fmt::{self, Debug, Formatter};
+use async_std::fmt::{self, Debug, Formatter};
 
 /// Hash of the event contents.
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]

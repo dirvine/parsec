@@ -14,7 +14,7 @@ use crate::{
     vote::Vote,
     DkgResult, DkgResultWrapper,
 };
-use std::{
+use async_std::{
     collections::{vec_deque, BTreeMap, BTreeSet, VecDeque},
     ops::{Deref, DerefMut},
 };

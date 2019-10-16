@@ -16,7 +16,7 @@ use crate::{
     serialise, DkgResultWrapper,
 };
 use serde::{de::Visitor, Deserialize, Deserializer, Serialize, Serializer};
-use std::{
+use async_std::{
     cmp::Ordering,
     collections::{BTreeMap, BTreeSet},
     error::Error,

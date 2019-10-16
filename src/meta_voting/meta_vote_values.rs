@@ -7,8 +7,8 @@
 // permissions and limitations relating to use of the SAFE Network Software.
 
 use super::{bool_set::BoolSet, meta_vote_counts::MetaVoteCounts};
-use std::fmt::{self, Debug, Formatter};
-use std::num::NonZeroUsize;
+use async_std::fmt::{self, Debug, Formatter};
+use async_std::num::NonZeroUsize;
 
 #[derive(Clone, Copy, Default, PartialEq, Eq, Serialize, Deserialize)]
 pub(crate) struct Estimates(BoolSet);
@@ -436,7 +436,7 @@ fn write_optional_single_bool_value(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use std::num::NonZeroUsize;
+    use async_std::num::NonZeroUsize;
 
     #[test]
     /// Assert counting on initial constructed MetaVoteValues is correct.

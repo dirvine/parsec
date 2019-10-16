@@ -220,7 +220,7 @@ pub use crate::{
 
 use maidsafe_utilities::serialisation;
 use serde::ser::Serialize;
-use std::fmt::Debug;
+use async_std::fmt::Debug;
 
 fn serialise<T: Serialize + Debug>(data: &T) -> Vec<u8> {
     if let Ok(serialised) = serialisation::serialise(data) {

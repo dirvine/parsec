@@ -141,7 +141,7 @@ impl<'a, P: PublicId + 'a> MetaEventBuilder<'a, P> {
 pub(crate) mod snapshot {
     use super::*;
     use crate::{id::SecretId, observation::snapshot::ObservationKeySnapshot, peer_list::PeerList};
-    use std::collections::{BTreeMap, BTreeSet};
+    use async_std::collections::{BTreeMap, BTreeSet};
 
     #[serde(bound = "")]
     #[derive(Eq, PartialEq, Debug, Serialize, Deserialize)]

@@ -8,9 +8,9 @@
 
 use super::meta_vote::MetaVote;
 use crate::observation::is_more_than_two_thirds;
-use std::iter;
-use std::num::NonZeroUsize;
-use std::ops::AddAssign;
+use async_std::iter;
+use async_std::num::NonZeroUsize;
+use async_std::ops::AddAssign;
 
 // This is used to collect the meta votes of other events relating to a single (binary) meta vote at
 // a given round and step.
@@ -122,7 +122,7 @@ mod tests {
     use crate::meta_voting::meta_vote_values::{
         AuxValue, BinValues, Estimates, MetaVoteValues, UndecidedMetaVoteValues,
     };
-    use std::{iter, slice};
+    use async_std::{iter, slice};
 
     #[test]
     fn count_estimates() {

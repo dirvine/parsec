@@ -18,7 +18,7 @@ use crate::{
     parsec::Parsec,
     peer_list::PeerIndex,
 };
-use std::{collections::BTreeSet, io, path::Path};
+use async_std::{collections::BTreeSet, io, path::Path};
 
 /// Record of a Parsec session which consist of sequence of operations (`vote_for`, `handle_request`
 /// and `handle_response`). Can be produced from a previously dumped DOT file and after replaying,
@@ -282,7 +282,7 @@ mod tests {
     use super::super::{new_common_rng, new_rng, RngChoice};
     use super::*;
     use crate::parsec::get_graph_snapshot;
-    use std::{iter, path::PathBuf, thread};
+    use async_std::{iter, path::PathBuf, thread};
 
     // Use Fixed seed for functional tests and replay: No randomization.
     static SEED: RngChoice = RngChoice::SeededXor([1, 2, 3, 4]);
@@ -373,7 +373,7 @@ mod tests {
     #[cfg(not(feature = "malice-detection"))]
     #[test]
     fn smoke_parsec() {
-        use std::fs;
+        use async_std::fs;
         use walkdir::WalkDir;
 
         let is_dot_file = |path: &PathBuf| {

@@ -21,7 +21,7 @@
 #![deny(unused_must_use)]
 //! Tests for synchronous distributed key generation.
 
-use std::collections::{BTreeMap, BTreeSet};
+use async_std::collections::{BTreeMap, BTreeSet};
 
 use super::{dkg_threshold, KeyGen, PartOutcome};
 use crate::mock::PeerId;
@@ -120,7 +120,7 @@ fn test_key_gen_with(threshold: usize, node_num: usize) {
     assert!(pub_key_set.public_key().verify(&sig, msg));
 
     // Test a second threshold signature
-    let sig2_start_idx = env.rng.gen_range(1, std::cmp::max(2, sig_shares.len()));
+    let sig2_start_idx = env.rng.gen_range(1, async_std::cmp::max(2, sig_shares.len()));
     let sig2 = pub_key_set
         .combine_signatures(
             sig_shares

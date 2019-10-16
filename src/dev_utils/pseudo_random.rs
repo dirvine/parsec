@@ -8,7 +8,7 @@
 
 use maidsafe_utilities::SeededRng;
 use rand::{Rng, SeedableRng, XorShiftRng};
-use std::fmt;
+use async_std::fmt;
 
 pub trait RngDebug: Rng + fmt::Debug {}
 

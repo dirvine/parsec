@@ -16,7 +16,7 @@ use crate::{
     parsec::KeyGenId,
     peer_list::PeerList,
 };
-use std::collections::BTreeMap;
+use async_std::collections::BTreeMap;
 
 /// Use this to initialise the folder into which the dot files will be dumped.  This allows the
 /// folder's path to be displayed at the start of a run, rather than at the arbitrary point when
@@ -77,7 +77,7 @@ mod detail {
     };
     use itertools::Itertools;
     use rand::{self, Rng};
-    use std::{
+    use async_std::{
         cell::RefCell,
         cmp,
         collections::{BTreeMap, BTreeSet},
@@ -263,7 +263,7 @@ mod detail {
     }
 
     fn force_symlink_dir<P: AsRef<Path>, Q: AsRef<Path>>(src: P, dst: Q) -> io::Result<()> {
-        use std::io::ErrorKind;
+        use async_std::io::ErrorKind;
         // Try to overwrite the destination if it exists, but only if it is a symlink, to prevent
         // accidental data loss.
         match fs::symlink_metadata(&dst) {
@@ -281,7 +281,7 @@ mod detail {
 
     #[cfg(unix)]
     fn symlink_dir<P: AsRef<Path>, Q: AsRef<Path>>(src: P, dst: Q) -> io::Result<()> {
-        use std::os::unix::fs::symlink;
+        use async_std::os::unix::fs::symlink;
         symlink(src, dst)
     }
 
@@ -292,7 +292,7 @@ mod detail {
 
     #[cfg(windows)]
     fn symlink_dir<P: AsRef<Path>, Q: AsRef<Path>>(src: P, dst: Q) -> io::Result<()> {
-        use std::os::windows::fs::symlink_dir;
+        use async_std::os::windows::fs::symlink_dir;
         symlink_dir(src, dst)
     }
 

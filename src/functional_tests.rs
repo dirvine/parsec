@@ -18,7 +18,7 @@ use crate::{
     parsec::TestParsec,
     peer_list::{PeerListSnapshot, PeerState},
 };
-use std::collections::BTreeSet;
+use async_std::collections::BTreeSet;
 
 // Use Fixed seed for functional tests: No randomization.
 static SEED: RngChoice = RngChoice::SeededXor([1, 2, 3, 4]);

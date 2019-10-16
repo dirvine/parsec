@@ -15,12 +15,12 @@ use crate::{
 };
 use itertools::Itertools;
 use rand::{seq, Rng};
-use std::{
+use async_std::{
     collections::{BTreeMap, BTreeSet},
     fmt, iter, mem,
 };
 #[cfg(feature = "dump-graphs")]
-use std::{fs::File, io::Write};
+use async_std::{fs::File, io::Write};
 
 /// This struct holds the data necessary to make a simulated request when a node executes a local
 /// step.
@@ -509,7 +509,7 @@ pub struct Schedule {
     pub min_observations: usize,
     pub max_observations: usize,
     pub events: Vec<ScheduleEvent>,
-    pub additional_steps: std::ops::Range<usize>,
+    pub additional_steps: async_std::ops::Range<usize>,
     pub options: ScheduleOptions,
 }
 

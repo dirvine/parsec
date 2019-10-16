@@ -42,8 +42,8 @@ use crate::{
 };
 use itertools::Itertools;
 #[cfg(any(test, feature = "testing"))]
-use std::ops::{Deref, DerefMut};
-use std::{
+use async_std::ops::{Deref, DerefMut};
+use async_std::{
     collections::{BTreeMap, BTreeSet, VecDeque},
     iter,
     marker::PhantomData,
@@ -1457,7 +1457,7 @@ impl<T: NetworkEvent, S: SecretId> Parsec<T, S> {
             .fold(BTreeMap::new(), |mut map, (idx, payload_key)| {
                 let (count, min_index) = map.entry(payload_key.clone()).or_insert((0, idx));
                 *count += 1;
-                *min_index = std::cmp::min(*min_index, idx);
+                *min_index = async_std::cmp::min(*min_index, idx);
                 map
             });
 
@@ -2345,7 +2345,7 @@ impl Parsec<Transaction, PeerId> {
             // only available with `dump-graphs` enabled (as it is not safe to dump secrets).
             // Use Cursor to get an io::Read object so we can use the not over constrained
             // `deserialise_from`.
-            let mut cursor = std::io::Cursor::new(serialized_key_gens_and_next_id);
+            let mut cursor = async_std::io::Cursor::new(serialized_key_gens_and_next_id);
             let (key_gen, key_gen_next_id) = unwrap!(
                 maidsafe_utilities::serialisation::deserialise_from(&mut cursor)
             );

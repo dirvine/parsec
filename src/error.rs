@@ -7,7 +7,7 @@
 // permissions and limitations relating to use of the SAFE Network Software.
 
 use crate::peer_list::PeerState;
-use std::{
+use async_std::{
     fmt::{self, Display, Formatter},
     result,
 };

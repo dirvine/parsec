@@ -23,7 +23,7 @@ use crate::{
 };
 use itertools::Itertools;
 use rand::Rng;
-use std::{
+use async_std::{
     collections::{BTreeMap, BTreeSet, VecDeque},
     fmt,
 };

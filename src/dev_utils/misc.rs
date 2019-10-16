@@ -6,7 +6,7 @@
 // KIND, either express or implied. Please review the Licences for the specific language governing
 // permissions and limitations relating to use of the SAFE Network Software.
 
-use std::{cmp::Ordering, fmt::Debug};
+use async_std::{cmp::Ordering, fmt::Debug};
 
 /// Testing related extensions to `Iterator`.
 pub trait TestIterator: Iterator {

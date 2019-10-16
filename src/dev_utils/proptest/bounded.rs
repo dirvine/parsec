@@ -11,7 +11,7 @@ use proptest_crate::{
     strategy::{BoxedStrategy, NewTree, Strategy, ValueTree},
     test_runner::TestRunner,
 };
-use std::{
+use async_std::{
     convert::From,
     fmt::Debug,
     ops::{Range, RangeInclusive},

@@ -8,7 +8,7 @@
 
 use super::{Ack, Part};
 use crate::parsec::KeyGenId;
-use std::fmt;
+use async_std::fmt;
 
 /// Messages used for running BLS DKG.
 #[serde(bound = "")]

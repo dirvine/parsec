@@ -15,7 +15,7 @@ use crate::{
     observation::Observation,
 };
 use crate::{hash::Hash, serialise, NetworkEvent, PublicId, Vote};
-use std::fmt::{self, Debug, Formatter};
+use async_std::fmt::{self, Debug, Formatter};
 
 /// Packed event contains only content and signature.
 #[serde(bound = "")]

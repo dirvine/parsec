@@ -16,7 +16,7 @@ use super::{event::Event, event_hash::EventHash};
 use crate::id::PublicId;
 #[cfg(feature = "malice-detection")]
 use fnv::FnvHashSet;
-use std::collections::{
+use async_std::collections::{
     btree_map::{BTreeMap, Entry},
     BTreeSet,
 };

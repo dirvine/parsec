@@ -12,7 +12,7 @@ use crate::{
 };
 use rand::{Rand, Rng};
 use safe_crypto::{gen_sign_keypair, PublicSignKey, SecretSignKey, Signature as SafeSignature};
-use std::{
+use async_std::{
     cmp::Ordering,
     fmt::{self, Debug, Display, Formatter},
     hash::{Hash, Hasher},
